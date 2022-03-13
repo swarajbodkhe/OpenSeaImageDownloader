@@ -76,7 +76,9 @@ public class NftDownloaderTests {
                         wt.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(e)));
 
                     }
-                    imgurls.add(e.getAttribute("src"));
+                    String iUrl=e.getAttribute("src");
+                    iUrl=iUrl.substring(0,iUrl.indexOf("=w"))+"=s0";
+                    imgurls.add(iUrl);
                 }
                 imgUrlElements.clear();
                 if (imgurls.size()>=finalCount){
